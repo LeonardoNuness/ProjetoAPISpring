@@ -21,12 +21,8 @@ import jakarta.persistence.Table;
         @Column
         private float preco;
 
-        public Produto(int codigoProduto, String descricao, String marca, float preco) {
-            this.codigoProduto = codigoProduto;
-            this.descricao = descricao;
-            this.marca = marca;
-            this.preco = preco;
-        }
+
+
 
         public int getCodigoProduto() {
             return codigoProduto;

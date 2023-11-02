@@ -32,14 +32,14 @@ public class ProdutoController {
         produtoRepository.save(produto);
     }
 
-    @GetMapping("/bucscarProdutoPordescricao/{descricao}")
+    @GetMapping("/buscarProdutoPorDescricao/{descricao}")
     public List<Produto> buscaProdutoPordescricao(@PathVariable(value = "descricao")String descricao){
         return produtoRepository.findByNome(descricao);
     }
 
-    @GetMapping("/buscaProdutoRaMenor/{preco}")
-    public List<Produto> buscaProdutoRaMenor(@PathVariable(value = "preco")int preco){
-        return produtoRepository.findByRaMenor(preco);
+    @GetMapping("/buscarProdutoPrecoMenor/{preco}")
+    public List<Produto> buscaProdutoPrecoMenor(@PathVariable(value = "preco")int preco){
+        return produtoRepository.findByPrecoMenor(preco);
     }
 
     @GetMapping("/buscaProdutoPorMarca/{marca}")
@@ -47,7 +47,7 @@ public class ProdutoController {
     return produtoRepository.findByMarca(marca);
 }
 
-    @GetMapping("/buscaProdutoPorMarcaPreco/{marca}{preco}")
+    @GetMapping("/buscarProdutoPorMarcaPreco/{marca}/{preco}")
     public List<Produto> findByMarcaPreco(@PathVariable(value = "marca") String marca,
                                           @PathVariable(value = "preco") float preco){
         return produtoRepository.findByMarcaPreco(marca, preco);

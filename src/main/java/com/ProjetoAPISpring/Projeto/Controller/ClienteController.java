@@ -24,7 +24,7 @@ public class ClienteController {
         return clienteRepository.findAll();
     }
 
-    @GetMapping("/buscaClienteRa/{codigoCliente}")
+    @GetMapping("/buscarClienteCodigo/{codigoCliente}")
     public Optional<Cliente> buscaClientePorRa(@PathVariable(value="codigoCliente")int cod){
         return clienteRepository.findById(cod);
     }
@@ -39,12 +39,12 @@ public class ClienteController {
         return clienteRepository.findByNome(nome);
     }
 
-    @GetMapping("/buscaClienteEmail/{email}")
-    public List<Cliente> buscaClienteEmail(@PathVariable(value="codigoCliente")String email){
+    @GetMapping("/buscarClienteEmail/{email}")
+    public List<Cliente> buscaClienteEmail(@PathVariable(value="email")String email){
         return clienteRepository.findByEmail(email);
     }
 
-    @GetMapping("/buscaClienteNomeEmail/{nome}{email}")
+    @GetMapping("/buscarClienteNomeEmail/{nome}/{email}")
     public List<Cliente> buscaClienteNomeEmail(@PathVariable(value = "nome") String nome,
                                                @PathVariable(value = "email") String email){
         return clienteRepository.findByNomeEmail(nome, email);

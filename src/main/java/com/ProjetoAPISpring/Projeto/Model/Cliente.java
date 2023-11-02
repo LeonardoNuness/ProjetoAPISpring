@@ -17,9 +17,11 @@ public class Cliente{
     @Column
     private String email;
 
-    public Cliente(int codigoCliente, String nome, String email) {
-        this.codigoCliente = codigoCliente;
-        this.nome = nome;
+    public int getCodigoCliente() {
+        return codigoCliente;
+    }
+
+    public void setCodigoCliente(int codigoCliente) {
         this.codigoCliente = codigoCliente;
     }
 
