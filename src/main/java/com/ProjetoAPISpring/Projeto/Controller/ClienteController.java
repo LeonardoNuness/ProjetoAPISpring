@@ -34,7 +34,7 @@ public class ClienteController {
         clienteRepository.save(cliente);
     }
 
-    @GetMapping("/buscaClientePorNome/{nome}")
+    @GetMapping("/buscarClientePorNome/{nome}")
     public List<Cliente> buscaClientePorNome(@PathVariable(value = "nome")String nome){
         return clienteRepository.findByNome(nome);
     }
@@ -54,4 +54,16 @@ public class ClienteController {
     public void atualizarCliente(@RequestBody Cliente cliente){
         clienteRepository.save(cliente);
     }
+
+    @DeleteMapping("/excluirCliente")
+    public void excluirCliente (@RequestBody Cliente cliente){
+        clienteRepository.delete(cliente);
+    }
+
+    @DeleteMapping("/excluirClientePorCodigo/{codigoCliente}")
+    public void excluirClientePorCodigo(
+            @PathVariable("codigoCliente") int cod) {
+        clienteRepository.deleteById(cod);
+    }
+
 }

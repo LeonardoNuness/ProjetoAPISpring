@@ -22,7 +22,7 @@ public class ProdutoController {
         return produtoRepository.findAll();
     }
 
-    @GetMapping("/buscaProdutoPorRa/{codigoProduto}")
+    @GetMapping("/buscarProdutoPorCodigo/{codigoProduto}")
     public Optional<Produto> buscaProdutoPorRa(@PathVariable(value="codigoProduto")int cod){
         return produtoRepository.findById(cod);
     }
@@ -42,7 +42,7 @@ public class ProdutoController {
         return produtoRepository.findByPrecoMenor(preco);
     }
 
-    @GetMapping("/buscaProdutoPorMarca/{marca}")
+    @GetMapping("/buscarProdutoPorMarca/{marca}")
     public List<Produto> buscaProdutoPorMarca(@PathVariable(value = "marca") String marca){
     return produtoRepository.findByMarca(marca);
 }
@@ -59,10 +59,15 @@ public class ProdutoController {
     }
 
     @DeleteMapping("/removerProduto")
-    public void removerProduto(@RequestBody Produto produto){
+    public void removerProduto(
+            @RequestBody Produto produto){
         produtoRepository.delete(produto);
     }
 
-
+    @DeleteMapping("/removerProdutoPorCodigo/{codigoProduto}")
+    public void removerProdutoPorCodigo(
+            @PathVariable("codigoProduto") int cod){
+        produtoRepository.deleteById(cod);
+    }
 }
 
